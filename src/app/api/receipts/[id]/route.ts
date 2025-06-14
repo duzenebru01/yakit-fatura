@@ -2,20 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { clientPromise } from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 
-interface RouteParams {
-  params: {
-    id: string;
-  };
-}
-
 export async function GET(
   request: NextRequest,
-  { params }: RouteParams
+  context: { params: { id: string } }
 ) {
   try {
     const client = await clientPromise;
     const db = client.db();
-    const receipt = await db.collection("receipts").findOne({ _id: new ObjectId(params.id) });
+    const receipt = await db.collection("receipts").findOne({ _id: new ObjectId(context.params.id) });
 
     if (!receipt) {
       return NextResponse.json({ error: "Fiş bulunamadı" }, { status: 404 });
