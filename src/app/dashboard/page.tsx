@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { Receipt } from "@/lib/receiptModel";
 import { useRouter } from "next/navigation";
@@ -46,12 +46,7 @@ export default function DashboardPage() {
   });
   const router = useRouter();
 
-  useEffect(() => {
-    fetchReceipts();
-    fetchConstants();
-  }, [fetchReceipts, fetchConstants]);
-
-  const fetchReceipts = async () => {
+  const fetchReceipts = useCallback(async () => {
     setIsLoading(prev => ({ ...prev, receipts: true }));
     try {
       const res = await fetch("/api/receipts");
@@ -63,9 +58,9 @@ export default function DashboardPage() {
     } finally {
       setIsLoading(prev => ({ ...prev, receipts: false }));
     }
-  };
+  }, []);
 
-  const fetchConstants = async () => {
+  const fetchConstants = useCallback(async () => {
     setIsLoading(prev => ({ ...prev, constants: true }));
     try {
       const res = await fetch("/api/receipts/constants");
@@ -77,7 +72,12 @@ export default function DashboardPage() {
     } finally {
       setIsLoading(prev => ({ ...prev, constants: false }));
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchReceipts();
+    fetchConstants();
+  }, [fetchReceipts, fetchConstants]);
 
   const fetchFuelPrice = async () => {
     setIsLoading(prev => ({ ...prev, fuelPrice: true }));
