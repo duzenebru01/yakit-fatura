@@ -9,6 +9,7 @@ export interface Receipt {
   fuelType: string;
   amount: number;
   price: number;
+  total: number;
   liter: number;
   unitPrice: number;
   totalPrice: number;
