@@ -50,21 +50,21 @@ export default function PrintPage() {
   }
 
   return (
-    <div className="p-8 max-w-[80mm] mx-auto">
-      <div className="text-center mb-4">
-        <h1 className="text-xl font-bold">{constants.companyName}</h1>
-        <p className="text-sm">{constants.address}</p>
-        <p className="text-sm">{constants.phone}</p>
-        <p className="text-sm">{constants.taxNumber}</p>
-        <p className="text-sm">TİC. SİC. NO: {constants.tradeRegistryNumber}</p>
-        <p className="text-sm">MERSİS: {constants.mersisNumber}</p>
+    <div className="p-4 max-w-[58mm] mx-auto">
+      <div className="text-center mb-2">
+        <h1 className="text-base font-bold">{constants.companyName}</h1>
+        <p className="text-xs">{constants.address}</p>
+        <p className="text-xs">{constants.phone}</p>
+        <p className="text-xs">{constants.taxNumber}</p>
+        <p className="text-xs">TİC. SİC. NO: {constants.tradeRegistryNumber}</p>
+        <p className="text-xs">MERSİS: {constants.mersisNumber}</p>
       </div>
 
-      <div className="border-t border-b border-dashed border-gray-400 py-2 my-2">
-        <p className="text-center font-bold">YAKIT ALIM FİŞİ</p>
+      <div className="border-t border-b border-dashed border-gray-400 py-1 my-1">
+        <p className="text-center font-bold text-sm">YAKIT ALIM FİŞİ</p>
       </div>
 
-      <div className="space-y-1 text-sm">
+      <div className="space-y-0.5 text-xs">
         <div className="flex justify-between">
           <span>Plaka:</span>
           <span>{receipt.licensePlate}</span>
@@ -95,20 +95,24 @@ export default function PrintPage() {
         </div>
       </div>
 
-      <div className="mt-4 text-center text-sm">
+      <div className="mt-2 text-center text-xs">
         <p>{constants.footerText}</p>
       </div>
 
       <style jsx global>{`
         @media print {
+          @page {
+            size: 58mm auto;
+            margin: 0;
+            padding: 0;
+          }
           body {
             margin: 0;
             padding: 0;
             background: white;
-          }
-          @page {
-            size: 80mm auto;
-            margin: 0;
+            width: 58mm;
+            min-width: 58mm;
+            max-width: 58mm;
           }
           nav, header, footer {
             display: none !important;
@@ -116,10 +120,19 @@ export default function PrintPage() {
           main {
             margin: 0 !important;
             padding: 0 !important;
+            width: 58mm !important;
+            min-width: 58mm !important;
+            max-width: 58mm !important;
           }
           * {
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
+            color-adjust: exact !important;
+          }
+          div {
+            width: 58mm !important;
+            min-width: 58mm !important;
+            max-width: 58mm !important;
           }
         }
       `}</style>
