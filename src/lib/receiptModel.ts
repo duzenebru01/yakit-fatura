@@ -7,6 +7,8 @@ export interface Receipt {
   date: string;
   time: string;
   fuelType: string;
+  amount: number;
+  price: number;
   liter: number;
   unitPrice: number;
   totalPrice: number;
