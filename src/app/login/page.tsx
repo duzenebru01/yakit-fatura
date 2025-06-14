@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
-import { Toast } from "@/components/Toast";
+import Toast from "@/components/Toast";
 
 interface LoginFormInputs {
   email: string;
@@ -14,7 +14,11 @@ export default function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormInputs>();
   const router = useRouter();
   const [error, setError] = useState("");
-  const [toast, setToast] = useState({ show: false, message: "", type: "" });
+  const [toast, setToast] = useState<{ show: boolean; message: string; type: "success" | "error" | "info" }>({ 
+    show: false, 
+    message: "", 
+    type: "info" 
+  });
 
   const onSubmit = async (data: LoginFormInputs) => {
     setError("");
@@ -33,7 +37,7 @@ export default function LoginPage() {
   };
 
   const hideToast = () => {
-    setToast({ show: false, message: "", type: "" });
+    setToast({ show: false, message: "", type: "info" });
   };
 
   return (
