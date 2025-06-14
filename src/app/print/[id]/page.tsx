@@ -50,7 +50,7 @@ export default function PrintPage() {
   }
 
   return (
-    <div className="p-4 max-w-[58mm] mx-auto">
+    <div className="print-content">
       <div className="text-center mb-2">
         <h1 className="text-base font-bold">{constants.companyName}</h1>
         <p className="text-xs">{constants.address}</p>
@@ -99,40 +99,34 @@ export default function PrintPage() {
         <p>{constants.footerText}</p>
       </div>
 
-      <style jsx global>{`
+      <style jsx>{`
+        .print-content {
+          width: 58mm;
+          padding: 4mm;
+          margin: 0 auto;
+          background: white;
+        }
         @media print {
-          @page {
-            size: 58mm auto;
-            margin: 0;
-            padding: 0;
+          .print-content {
+            width: 58mm !important;
+            padding: 4mm !important;
+            margin: 0 !important;
+            background: white !important;
           }
           body {
-            margin: 0;
-            padding: 0;
-            background: white;
-            width: 58mm;
-            min-width: 58mm;
-            max-width: 58mm;
-          }
-          nav, header, footer {
-            display: none !important;
-          }
-          main {
             margin: 0 !important;
             padding: 0 !important;
-            width: 58mm !important;
-            min-width: 58mm !important;
-            max-width: 58mm !important;
+            background: white !important;
+          }
+          @page {
+            size: 58mm auto !important;
+            margin: 0 !important;
+            padding: 0 !important;
           }
           * {
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
             color-adjust: exact !important;
-          }
-          div {
-            width: 58mm !important;
-            min-width: 58mm !important;
-            max-width: 58mm !important;
           }
         }
       `}</style>
