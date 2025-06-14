@@ -6,6 +6,7 @@ export interface Receipt {
   licensePlate: string;
   date: string;
   time: string;
+  fuelType: string;
   liter: number;
   unitPrice: number;
   totalPrice: number;
