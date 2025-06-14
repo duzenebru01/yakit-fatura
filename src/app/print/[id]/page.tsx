@@ -104,10 +104,22 @@ export default function PrintPage() {
           body {
             margin: 0;
             padding: 0;
+            background: white;
           }
           @page {
             size: 80mm auto;
             margin: 0;
+          }
+          nav, header, footer {
+            display: none !important;
+          }
+          main {
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+          * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
           }
         }
       `}</style>
