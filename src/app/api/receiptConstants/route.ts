@@ -1,5 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getReceiptConstants, updateReceiptConstants } from "@/lib/receiptConstantsModel";
+import { NextResponse } from "next/server";
 import { clientPromise } from "@/lib/mongodb";
 import { ReceiptConstants } from "@/types/receiptConstants";
 

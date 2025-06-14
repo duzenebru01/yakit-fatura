@@ -49,7 +49,7 @@ export default function DashboardPage() {
   useEffect(() => {
     fetchReceipts();
     fetchConstants();
-  }, []);
+  }, [fetchReceipts, fetchConstants]);
 
   const fetchReceipts = async () => {
     setIsLoading(prev => ({ ...prev, receipts: true }));
