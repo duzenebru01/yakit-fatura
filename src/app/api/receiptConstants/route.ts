@@ -44,7 +44,15 @@ export async function PUT(request: Request) {
       // Mevcut sabitleri güncelle
       await db.collection("receiptConstants").updateOne(
         { _id: existingConstants._id },
-        { $set: constants }
+        { $set: { 
+          companyName: constants.companyName,
+          address: constants.address,
+          phone: constants.phone,
+          taxNumber: constants.taxNumber,
+          tradeRegistryNumber: constants.tradeRegistryNumber,
+          mersisNumber: constants.mersisNumber,
+          footerText: constants.footerText
+        }}
       );
     } else {
       // Yeni sabitler oluştur
