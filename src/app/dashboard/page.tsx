@@ -129,6 +129,10 @@ export default function DashboardPage() {
     router.push(`/print/${id}`);
   };
 
+  const handlePrint58 = (id: string) => {
+    router.push(`/print58/${id}`);
+  };
+
   const handleLogout = async () => {
     try {
       const res = await fetch("/api/auth/logout", { method: "POST" });
@@ -371,6 +375,12 @@ export default function DashboardPage() {
                           className="text-blue-600 hover:text-blue-900"
                         >
                           Yazdır
+                        </button>
+                        <button
+                          onClick={() => handlePrint58(receipt._id?.toString() || "")}
+                          className="ml-2 text-green-600 hover:text-green-900"
+                        >
+                          Yazdır (58mm)
                         </button>
                       </td>
                     </tr>
