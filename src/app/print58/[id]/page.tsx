@@ -91,7 +91,7 @@ export default function Print58Page() {
         <span>{receipt.total.toFixed(2)} TL</span>
       </div>
       {/* 15. sıra: çizgi */}
-      <div className="row center">------------------------------</div>
+      <div className="row center">------------------------</div>
       {/* 16. sıra: solda KDV (plaka ile aynı boyutta), sağda kdv tutarı */}
       <div className="row between plate bold">
         <span>KDV</span>
@@ -103,7 +103,7 @@ export default function Print58Page() {
         <span>{toplamTutar.toFixed(2)} TL</span>
       </div>
       {/* 18. sıra: çizgi */}
-      <div className="row center">------------------------------</div>
+      <div className="row center">------------------------</div>
       {/* 19. sıra: ödeme yöntemi solda, sağda toplam */}
       <div className="row between">
         <span>Ödeme: Nakit</span>
