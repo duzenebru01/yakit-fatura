@@ -84,7 +84,7 @@ export default function Print58Page() {
       {/* 12. sıra: boşluk */}
       <div className="row">&nbsp;</div>
       {/* 13. sıra: solda alınan yakıt miktarı X birim fiyatı */}
-      <div className="row left">{receipt.amount} Lt x {receipt.price.toFixed(2)} TL</div>
+      <div className="row left">{receipt.amount} Lt x {Number(receipt.price).toFixed(2)} TL</div>
       {/* 14. sıra: solda yakıt türü, yanında %20 vergi, sağda toplam */}
       <div className="row between">
         <span>{receipt.fuelType} (%20 KDV)</span>
